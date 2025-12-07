@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lag="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Practica JS + Inputs</title>
+
+        <!-- 🎨 CSS AGREGADO (colores llamativos y animaciones) -->
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                background: linear-gradient(135deg, #ff00cc, #6600ff);
+                color: white;
+                padding-top: 40px;
+            }
+
+            h1 {
+                font-size: 45px;
+                animation: glow 1.5s infinite alternate;
+            }
+
+            @keyframes glow {
+                from { text-shadow: 0 0 15px #fff; }
+                to   { text-shadow: 0 0 25px #00ffff; }
+            }
+
+            label {
+                font-size: 20px;
+            }
+
+            input {
+                margin-top: 15px;
+                padding: 10px;
+                font-size: 18px;
+                border-radius: 10px;
+                border: none;
+                outline: none;
+                transition: 0.3s;
+            }
+
+            input:focus {
+                transform: scale(1.1);
+                box-shadow: 0 0 15px #fff;
+            }
+
+            button {
+                margin-top: 20px;
+                padding: 12px 25px;
+                font-size: 20px;
+                border: none;
+                border-radius: 10px;
+                background: #ffcc00;
+                cursor: pointer;
+                font-weight: bold;
+                transition: 0.3s;
+            }
+
+            button:hover {
+                transform: scale(1.15);
+                background: #ffee66;
+                box-shadow: 0 0 20px #fff;
+            }
+
+            /* ✔ ALERTA PERSONALIZADA */
+            .alerta {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0.8);
+                background: white;
+                color: black;
+                padding: 25px;
+                width: 320px;
+                border-radius: 15px;
+                box-shadow: 0 0 20px #000;
+                opacity: 0;
+                animation: pop 0.3s forwards;
+                z-index: 99999;
+                text-align: center;
+            }
+
+            @keyframes pop {
+                to {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+            }
+
+            .alerta button {
+                background: #ff0066;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                margin-top: 15px;
+                border-radius: 10px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: 0.2s;
+            }
+
+            .alerta button:hover {
+                background: #ff3c88;
+                transform: scale(1.1);
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>La torre del juicio</h1>
+        <label for="numero">Ingresa el numero de tu tarjeta</label>
+        <br>
+        <input type="text" id="numero"><br>
+        <button onclick="respuesta()">Respuesta</button>
+
+        <script>
+
+            /* ✔ FUNCIÓN PARA REEMPLAZAR ALERT() POR UNA ALERTA BONITA */
+            function mostrarAlerta(mensaje) {
+                const div = document.createElement("div");
+                div.className = "alerta";
+                div.innerHTML = `
+                    <h3>Respuesta</h3>
+                    <p>${mensaje}</p>
+                    <button onclick="this.parentElement.remove()">Cerrar</button>
+                `;
+                document.body.appendChild(div);
+            }
+
+            function respuesta(){
+                let numero = document.getElementById("numero").value;
+
+                /* ✔ AQUÍ DEJO EXACTAMENTE TU MISMO SWITCH SIN CAMBIAR NADA 
+                     SOLO CAMBIÉ alert("texto") POR mostrarAlerta("texto") 
+                */
+                
+                switch (numero) {
+                    case "1":
+                        mostrarAlerta("Porque permite considerar a los demás, evitar daño, buscar el bien común.");
+                        break;
+                    case "2": 
+                        mostrarAlerta("No siempre; si la autoridad pide algo injusto, no es ético obedecer.");
+                        break;
+                    case "3": 
+                        mostrarAlerta("No, porque apoyarías prácticas injustas que dañan los derechos y la dignidad de los niños.");
+                        break;
+                    case "4": 
+                        mostrarAlerta("Daño al ambiente, falta de responsabilidad, afecta a todos.");
+                        break;
+                    case "5": 
+                        mostrarAlerta("Justicia, respeto, honestidad, solidaridad.");
+                        break;
+                    case "6": 
+                        mostrarAlerta("No es ético. Debe pedir consentimiento.");
+                        break;
+                    case "7": 
+                        mostrarAlerta("Devolverla o entregarla a alguien responsable.");
+                        break;
+                    case "8": 
+                        mostrarAlerta("No, porque falsear información rompe la confianza.");
+                        break; 
+                    case "9": 
+                        mostrarAlerta("Pensar en el bien común; equilibrar tu bienestar y el de otros.");
+                        break;
+                    case "10": 
+                        mostrarAlerta("Proteger civiles sería lo más moral, desobedecer órdenes para proteger vidas.");
+                        break;
+                    case "11": 
+                        mostrarAlerta("Depende de su perspectiva ética y moral respecto a la vida de las personas.");
+                        break;
+                    case "12":
+                        mostrarAlerta("Es una decisión difícil; la mejor opción depende del contexto.");
+                        break;
+                    case "13":
+                        mostrarAlerta("Sí, son valores que reflejan la importancia de la moralidad.");
+                        break;
+                    case "14":
+                        mostrarAlerta("Devolverla es lo más ético y moral.");
+                        break;
+                    case "15": 
+                        mostrarAlerta("Sí, cambia con el tiempo, la ideología y la cultura.");
+                        break;
+                    case "16": 
+                        mostrarAlerta("Es algo que cambia con el paso del tiempo y la cultura.");
+                        break;
+                    case "17": 
+                        mostrarAlerta("Revivir especies puede causar desequilibrio ecológico.");
+                        break;
+                    case "18": 
+                        mostrarAlerta("Lo más moral es salvar a los más vulnerables.");
+                        break;
+                    case "19": 
+                        mostrarAlerta("Regla que regula el comportamiento buscando convivencia y orden.");
+                        break;
+                    case "20": 
+                        mostrarAlerta("La norma legal es coercitiva; la social depende de costumbres.");
+                        break;
+                    case "21": 
+                        mostrarAlerta("Documento con reglas para asegurar calidad y compatibilidad.");
+                        break;
+                    case "22": 
+                        mostrarAlerta("Se aplica la norma social de respeto al silencio.");
+                        break;
+                    case "23": 
+                        mostrarAlerta("Norma organizacional; consecuencias: sanciones y pérdida de confianza.");
+                        break;
+                    case "24": 
+                        mostrarAlerta("Es norma legal; se obedece para prevenir riesgos y mantener orden.");
+                        break;
+                    case "25": 
+                        mostrarAlerta("Habría caos, inseguridad y conflicto.");
+                        break;
+                    case "26": 
+                        mostrarAlerta("Protegen derechos, limitan poder y dan trato equitativo.");
+                        break;
+                    case "27": 
+                        mostrarAlerta("Se puede desobedecer apelando al bien mayor, aceptando consecuencias.");
+                        break;
+                    case "28":
+                        mostrarAlerta("Participar con respeto o mantener silencio.");
+                        break;
+                    case "29": 
+                        mostrarAlerta("Tradición: costumbre transmitida entre generaciones.");
+                        break;
+                    case "30": 
+                        mostrarAlerta("Cambia por globalización, tecnología y valores sociales."); 
+                        break;
+                    case "31": 
+                        mostrarAlerta("Escuchar con respeto y evitar juzgar.");
+                        break;
+                    case "32": 
+                        mostrarAlerta("Ejemplo: quitarse los zapatos, llevar un regalo.");
+                        break;
+                    case "33": 
+                        mostrarAlerta("Ayuda a fomentar empatía cultural.");
+                        break;
+                    case "34": 
+                        mostrarAlerta("Disculparse y participar de buena fe.");
+                        break;
+                    case "35": 
+                        mostrarAlerta("Costumbre no es obligatoria; la ley sí.");
+                        break; 
+                    case "36": 
+                        mostrarAlerta("Explicar su propósito y aplicar con flexibilidad.");
+                        break; 
+                    case "37": 
+                        mostrarAlerta("Cumplir compromisos genera confianza.");
+                        break;
+                    case "38": 
+                        mostrarAlerta("La constancia hace que las personas confíen más en ti."); 
+                        break;
+                    case "39": 
+                        mostrarAlerta("Causa retrasos, conflictos y pérdida de confianza.");
+                        break;
+                    case "40": 
+                        mostrarAlerta("Cumplir tu parte mejora el trabajo en comunidad.");
+                        break; 
+                    case "41": 
+                        mostrarAlerta("Organizarse, ser honesto, cuidar lo propio y ajeno.");
+                        break;
+                    case "42": 
+                        mostrarAlerta("Debió avisar con tiempo y organizarse mejor.");
+                        break;
+                    case "43": 
+                        mostrarAlerta("Debe devolverla al dueño o autoridad.");
+                        break;
+                    case "44": 
+                        mostrarAlerta("Causa molestias; debió cumplir su turno.");
+                        break;
+                    case "45": 
+                        mostrarAlerta("Debió estudiar; afecta su rendimiento.");
+                        break;
+                    case "46": 
+                        mostrarAlerta("La virtud es disposición habitual de hacer el bien.");
+                        break;
+                    case "47":
+                        mostrarAlerta("Decir la verdad te hace buen ciudadano.");
+                        break;
+                    case "48": 
+                        mostrarAlerta("Ser amable con quien lo necesita es una virtud.");
+                        break;
+                    case "49": 
+                        mostrarAlerta("Honestidad.");
+                        break;
+                    case "50": 
+                        mostrarAlerta("Generosidad.");
+                        break;
+                    case "51": 
+                        mostrarAlerta("Lealtad.");
+                        break;
+                    case "52": 
+                        mostrarAlerta("Cooperación.");
+                        break;
+                    case "53": 
+                        mostrarAlerta("Valentía.");
+                        break;
+                    case "54": 
+                        mostrarAlerta("Hábito moralmente bueno que impulsa a actuar con ética.");
+                        break;
+                }
+            }
+        </script>
+    </body>
+</html>
